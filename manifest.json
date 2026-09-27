@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Ultimate Google Maps Scraper Pro Max",
+  "version": "5.0",
+  "description": "Smart background scraper with dynamic loading wait and independent tab operation.",
+  "permissions": ["activeTab", "scripting", "downloads", "storage", "tabs"],
+  "host_permissions": [
+    "*://*.google.com/maps/*", 
+    "*://*.google.pl/maps/*", 
+    "*://*.google.se/maps/*", 
+    "*://*.google.com.eg/maps/*"
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Maps Scraper Pro Max",
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

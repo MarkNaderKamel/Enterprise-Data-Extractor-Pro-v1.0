@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 380px;
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #202124;
+        }
+        h3 { margin-top: 0; text-align: center; font-size: 16px; color: #1a73e8; }
+        
+        .filters {
+            background: #f1f3f4;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .filters div { margin-bottom: 8px; }
+        .filters label { font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px; }
+        .filters input { width: 100%; padding: 6px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        .checkbox-group { display: flex; align-items: center; }
+        .checkbox-group input { width: auto; margin-right: 8px; }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+            transition: 0.2s;
+        }
+        #scrapeBtn { background-color: #1a73e8; }
+        #scrapeBtn:hover { background-color: #1558b0; }
+        #scrapeBtn:disabled { background-color: #ccc; cursor: not-allowed; }
+        
+        #stopBtn { background-color: #d93025; display: none; }
+        #stopBtn:hover { background-color: #b3261e; }
+
+        #downloadBtn { background-color: #34a853; display: none; }
+        #downloadBtn:hover { background-color: #2c8a45; }
+
+        #status { 
+            margin-top: 10px; 
+            font-size: 12px; 
+            color: #5f6368; 
+            text-align: center;
+            min-height: 20px;
+        }
+        .counter-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+            padding: 10px;
+            background: #e8f0fe;
+            border-radius: 8px;
+        }
+        .counter-box { text-align: center; }
+        .counter-label { font-size: 10px; color: #5f6368; text-transform: uppercase; }
+        .counter-value { font-size: 20px; font-weight: bold; color: #1a73e8; }
+        
+        .info-box {
+            background: #fff3cd;
+            color: #856404;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 12px;
+            color: #5f6368;
+        }
+        .footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h3>🚀 Maps Scraper Pro Max v5.0</h3>
+    
+    <div class="info-box">
+        💡 Smart Mode: You can close this popup and switch tabs after starting.
+    </div>
+
+    <div class="filters">
+        <div>
+            <label>Minimum Reviews</label>
+            <input type="number" id="minReviews" value="0" placeholder="e.g., 10">
+        </div>
+        <div>
+            <label>Minimum Rating (1-5)</label>
+            <input type="number" id="minRating" value="0" step="0.1" min="0" max="5">
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="onlyNoWebsite">
+            <label for="onlyNoWebsite">Scrape businesses WITHOUT website only</label>
+        </div>
+    </div>
+
+    <button id="scrapeBtn">Start Scraping</button>
+    <button id="stopBtn">Stop Scraping</button>
+    
+    <div class="counter-container">
+        <div class="counter-box">
+            <div class="counter-label">Scanned</div>
+            <div class="counter-value" id="totalScanned">0</div>
+        </div>
+        <div class="counter-box">
+            <div class="counter-label">Qualified</div>
+            <div class="counter-value" id="totalQualified">0</div>
+        </div>
+    </div>
+    
+    <div id="status">Status: Idle</div>
+    
+    <button id="downloadBtn">⬇ Download CSV</button>
+
+    <div class="footer">
+        Developed By <a href="https://marktanyous.com/" target="_blank">Mark Nader</a>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
